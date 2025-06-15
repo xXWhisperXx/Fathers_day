@@ -87,6 +87,13 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: bounceIn 0.6s ease-out;
+            /* Nuevas propiedades añadidas */
+            width: 150px; /* Fijamos el ancho del contenedor */
+            height: auto; /* Altura automática para mantener proporción */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.05); /* Fondo por si la imagen no cubre todo */
         }
 
             .image-item:nth-child(2) {
@@ -103,10 +110,11 @@
             }
 
             .image-item img {
-                width: 150px;
-                height: 150px;
-                object-fit: cover;
+                width: 100%; /* La imagen ocupa el 100% del contenedor */
+                height: auto; /* Altura automática para mantener proporción */
+                object-fit: contain; /* Cambiado de 'cover' a 'contain' para que no recorte */
                 display: block;
+                max-height: 150px; /* Limitamos la altura máxima */
             }
 
         .message {
@@ -282,18 +290,13 @@
         }
 
         @media (max-width: 768px) {
-            .card-container {
-                padding: 30px 20px;
-            }
-
-            .title {
-                font-size: 2em;
-            }
-
-            .image-item img {
+            .image-item {
                 width: 120px;
-                height: 120px;
             }
+
+                .image-item img {
+                    max-height: 120px;
+                }
         }
     </style>
 </head>
@@ -325,7 +328,7 @@
 
         <div class="message">
             <p>
-                Porque siempre estás, porque sos un ejemplo, y porque te merecés un buen momento para vos.
+                Porque siempre estás, y porque te merecés un buen momento para vos.
                 Este vale es por un libro especial que está en camino (tarda, pero vale la pena).
                 Mientras tanto, podés ir eligiendo el sillón y el tecito para cuando llegue...
             </p>
